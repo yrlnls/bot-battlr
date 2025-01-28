@@ -21,7 +21,7 @@ function BotCollection({ addBotToArmy }) {
 
   const handleBotClick = (bot) => {
     console.log("Clicked bot:", bot);
-    addBotToArmy(bot); // Call the function passed from App.jsx
+    addBotToArmy(bot); 
   };
 
   const botCards = bots.map((bot) => (
