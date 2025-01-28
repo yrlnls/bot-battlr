@@ -1,13 +1,16 @@
 import React from "react";
-import BotsPage from "./components/BotsPage";
-import "./index.css"
+import YourBotArmy from "./components/YourBotArmy";
+import BotCollection from "./components/BotCollection";
+import "./index.css";
 
 function App() {
+
   return (
     <div className="App">
-      <h1>BOTS </h1>
-      
-      <BotsPage />
+      <h1>Bot Collection</h1>
+      <BotCollection />
+      <h1>Your Bot Army</h1>
+      <YourBotArmy />
     </div>
   );
 }

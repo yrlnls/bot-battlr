@@ -1,32 +1,29 @@
 import React from "react";
-import BotCard from "./BotCard";
 
-function YourBotArmy(props) {
-  console.log("Your Army Bots:", JSON.stringify(props.bots, null, 2)); // Detailed logging
+function YourBotArmy({ bots = [], removeBot, dischargeBot }) {
+  console.log("Your Army Bots:", bots); // Debugging log
 
-  const removeBot = (botId) => {
-    props.removeBot(botId);
+  const handleRemoveBot = (botId) => {
+    removeBot(botId);
   };
 
-  const dischargeBot = (botId) => {
-    props.dischargeBot(botId);
+  const handleDischargeBot = (botId) => {
+    dischargeBot(botId);
   };
 
-  const bots = props.bots.map((bot) => {
-    return (
-      <div key={bot.id}>
-        <BotCard bot={bot} botFunction={() => removeBot(bot.id)} />
-        <button onClick={() => dischargeBot(bot.id)}>x</button>
-      </div>
-    );
-  });
+  const botList = bots.map((bot) => (
+    <div key={bot.id}>
+      <h3>{bot.name}</h3>
+      <button onClick={() => handleDischargeBot(bot.id)}>x</button>
+    </div>
+  ));
 
   return (
     <div className="ui segment inverted olive bot-army">
       <div className="ui five column grid">
         <div className="row bot-army-row">
-          {bots}
-          {bots.length === 0 ? <h1>Bot Army</h1> : null}
+          {botList}
+          {botList.length === 0 ? <h1>Bot Army is empty</h1> : null}
         </div>
       </div>
     </div>
